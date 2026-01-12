@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600&family=Great+Vibes&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Premium Palette: Gold, Beige, Soft Pink, Deep Charcoal */
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'Montserrat', sans-serif;
+  --font-script: 'Great Vibes', cursive;
+
+  --background: 30 20% 98%;      /* Soft cream/beige */
+  --foreground: 220 10% 20%;     /* Soft charcoal */
+  
+  --primary: 35 45% 65%;         /* Muted Gold */
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 10 30% 92%;       /* Very light pink/beige */
+  --secondary-foreground: 220 10% 20%;
+  
+  --muted: 30 15% 90%;
+  --muted-foreground: 220 10% 45%;
+  
+  --accent: 350 40% 85%;         /* Soft rose accent */
+  --accent-foreground: 220 10% 20%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 35 25% 85%;
+  --input: 35 25% 90%;
+  --ring: 35 45% 65%;
+  
+  --radius: 0.5rem;
+}
+
+.dark {
+  /* Not prioritizing dark mode for a spa site, but defining reasonable defaults just in case */
+  --background: 220 15% 10%;
+  --foreground: 30 20% 98%;
+  
+  --primary: 35 50% 60%;
+  --primary-foreground: 0 0% 100%;
+  
+  --secondary: 220 15% 15%;
+  --secondary-foreground: 30 20% 98%;
+  
+  --muted: 220 15% 20%;
+  --muted-foreground: 220 10% 65%;
+  
+  --accent: 350 30% 25%;
+  --accent-foreground: 30 20% 98%;
+  
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+  
+  --border: 220 15% 20%;
+  --input: 220 15% 20%;
+  --ring: 35 50% 60%;
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply font-semibold tracking-tight;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: hsl(var(--primary));
+  }
+  .bg-gold {
+    background-color: hsl(var(--primary));
+  }
+  .font-script {
+    font-family: var(--font-script);
+  }
+  
+  /* Luxury specific classes */
+  .luxury-shadow {
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,0.08);
+  }
+  
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-md border border-white/40 shadow-xl;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
